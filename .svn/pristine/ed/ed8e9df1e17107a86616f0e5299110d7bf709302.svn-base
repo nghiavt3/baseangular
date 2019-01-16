@@ -1,0 +1,41 @@
+<!-- Material form login -->
+<div class="col-sm-offset-4 col-sm-4"  style="margin-left: 33%;">
+    <mdb-card>
+        
+          <mdb-card-header class="secondary-color lighten-1 white-text text-center py-4">
+            <h5>
+              <strong>Register New Account</strong>
+            </h5>
+          </mdb-card-header>
+        
+        
+          <!--Card content-->
+          <mdb-card-body class="px-lg-5 pt-0">
+        
+            <!-- Form -->
+            <form class="text-center" [formGroup]='loginForm' novalidate (ngSubmit)="onSubmit()" style="color: #757575;">
+        
+              <!-- Email -->
+              <div class="md-form">
+                <input type="email" formControlName="email" id="materialLoginFormEmail" class="form-control" mdbInputDirective>
+                <label for="materialLoginFormEmail">E-mail</label>
+                <!-- <control-messages [control]="loginForm.controls['email']"></control-messages> -->
+              </div>
+        
+              <!-- Password -->
+              <div class="md-form">
+                <input type="password" formControlName="password" id="materialLoginFormPassword" class="form-control" mdbInputDirective>
+                <label for="materialLoginFormPassword">Password</label>
+                <!-- <control-messages [control]="loginForm.controls['password']"></control-messages> -->
+              </div>
+              <!-- Sign in button -->
+              <button mdbBtn [disabled]="!loginForm.valid" color="info" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0" mdbWavesEffect
+                type="submit">Register</button>
+            </form>
+            <!-- Form -->
+        
+          </mdb-card-body>
+        
+        </mdb-card>
+      </div>
+      

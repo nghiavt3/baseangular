@@ -1,0 +1,40 @@
+import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../../services/auth.service';
+import {Router, ActivatedRoute} from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+@Component({
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
+})
+export class RegisterComponent implements OnInit {
+
+  loginForm: FormGroup;
+  returnUrl:string;
+  constructor(private authService:AuthService,private router:Router,private fb: FormBuilder,private activatedRouter:ActivatedRoute) { }
+
+  ngOnInit() {
+    this.returnUrl = this.activatedRouter.snapshot.queryParams['returnUrl'] || '/';
+    this.createForm();
+  }
+
+  createForm() {
+    this.loginForm = this.fb.group({
+      email: ['', Validators.compose([Validators.required, Validators.maxLength(160)])],
+      password: ['', Validators.required]
+    });
+  }
+  onSubmit(){
+    let email = this.loginForm.get('email').value;
+    console.log(email);
+    let password = this.loginForm.get('password').value;
+    console.log(password);
+    this.authService.RegisterWithEmailAndPass(email,password)
+    .then((res) =>{
+      console.log(res);
+       this.router.navigate([this.returnUrl]);
+    })
+    .catch((err) => console.log(err));
+  };
+
+}

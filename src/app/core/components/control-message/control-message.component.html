@@ -1,0 +1,7 @@
+<!-- <div *ngIf="errorMessage !== null" class="alert alert-danger">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  {{errorMessage}}</div> -->
+
+  <mdb-error class="inputVal text-danger" style="visibility: visible; top: 38px;" *ngIf="control.invalid && (control.dirty || control.touched)"> {{errorMessage}}</mdb-error>
+  <mdb-success class="inputVal text-success" *ngIf="control.valid && (control.dirty || control.touched)">success</mdb-success>
