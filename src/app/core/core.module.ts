@@ -9,6 +9,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { LoginComponent } from './components/login/login.component';
+import { UserVerificationComponent } from './components/user-verification/user-verification.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { RegisterComponent } from './components/register/register.component';
@@ -35,7 +37,9 @@ import {SpinnerService} from '../core/services/spinner.service';
     ToastrModule.forRoot()
   ],
   exports: [NavbarComponent,FooterComponent,ControlMessageComponent,ErrorComponent],
-  declarations: [NavbarComponent, FooterComponent, HomeComponent, ErrorComponent, LoginComponent, RegisterComponent, ControlMessageComponent],
+  declarations: [NavbarComponent, FooterComponent, HomeComponent, ErrorComponent,
+     LoginComponent, RegisterComponent, ControlMessageComponent, LoadingComponent,
+     UserVerificationComponent,ResetPasswordComponent],
   providers: [
     AuthService,
     AuthGuardService,
