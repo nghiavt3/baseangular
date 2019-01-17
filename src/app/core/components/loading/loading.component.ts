@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {ngxLoadingAnimationTypes} from 'ngx-loading';
 @Component({
   selector: 'app-loading',
   templateUrl: './loading.component.html',
